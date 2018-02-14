@@ -8,41 +8,41 @@
             .container {
                 width: 430px;
                 height: auto;
-                box-shadow: 0 0 10px lime;
-            }
-            h2 {
-                text-align: center;
-                font-family: Arial, sans-serif;
-                margin-top: 5px;
-                margin-left: 70px;
-            }
-            .top {
                 margin-left: 10px;
-                margin-right: 80px;
+                font-family: "Gill Sans", sans-serif;
+            }
+            #title {
+                margin-top: 10px;
+            }
+            .heightInputs {
+                margin-top: -5px;
+                margin-left: -2px;
             }
             .height {
                 display: inline-block;
-                box-shadow: 0 0 5px lime;
             }
             label {
                 margin-left: 8px;
             }
+            hr {
+                color: lime;
+                border-style: solid; 
+            }
             #feetInput {
                width: 40px; 
                font-size: 16px;
-               border: 2px solid rgba(0,255,0,0.3);
                text-align: center;
             }
             #inchesInput {
                 width: 50px;
                 font-size: 16px;
-                border: 2px solid rgba(0,255,0,0.3);
                 text-align: center;
             }
             #feetInput:focus,
             #inchesInput:focus {
                 box-shadow: 0 0 8px lime;
             }
+            .top,
             .mid,
             .bottom {
                 margin-bottom: 10px;
@@ -57,14 +57,16 @@
                 font-size: 22px;
                 color: rgba(0, 195, 0, 0.7);
                 margin-left: 10px;
-                margin-right: -15px;
+                margin-right: -18px;
             }
             #clearBtn {
-                margin-bottom: 10px;
+                margin-bottom: 7px;
+                margin-top: 7px;
+                float: left;
                 border-radius: 5px;
-                width: 100px;
+                width: 120px;
                 font-size: 16px;
-                box-shadow: 0 0 5px lime;
+                text-transform: uppercase;
             }
 
             @media (max-width: 650px) {
@@ -76,18 +78,22 @@
     </head>
     <body>
         <div class="container">
+            <h3 id="title" class="top">Enter your height and choose your paddling style to calculate your custom length</h3>
+            <hr>
             <div class="top">
-                <h2>Enter your height and choose your paddling style to calculate your custom length</h2>
                 <h3>Height</h3>
-                <div class="height" id="feet">
-                    <label>Feet</label><br />
-                    <input type="number" id="feetInput" value="" onchange="calculate()" max="9" />
-                </div>
-                <div class="height" id="inches">
-                    <label>Inches</label><br />
-                    <input type="number" id="inchesInput" value="" onchange="calculate()" max="12" />
+                <div class="heightInputs">
+                    <div class="height" id="feet">
+                        <label>Feet</label><br />
+                        <input type="number" id="feetInput" value="" onchange="calculate()" max="9" />
+                    </div>
+                    <div class="height" id="inches">
+                        <label>Inches</label><br />
+                        <input type="number" id="inchesInput" value="" onchange="calculate()" max="12" />
+                    </div>
                 </div>
             </div>
+            <hr>
             <div class="mid">
                 <h3>Paddling Style</h3>
                 <form>
@@ -96,6 +102,7 @@
                     <input type="radio" name="style" id="paddling3" onchange="calculate()" /> <span class="paddlingStyle">Everything!</span>
                 </form>
             </div>
+            <hr>
             <div class="bottom">
                 <h3>
                     Your recommended paddle length is<input id="finalLength" value="0" /> inches
@@ -111,7 +118,6 @@
 
                 feet *= 12;
                 
-
                 feet = feet ? feet : 0;
                 inches = inches ? inches : 0;
 
